@@ -1,0 +1,37 @@
+{
+	"fileName": "id_taxonomia_addXML",
+	"fileType": "change",
+	"changeType": "addXML",
+	"moduleName": "customer/zmmpomanages1pav2/changes/fragments/groupElementTaxonomia.fragment.xml",
+	"reference": "customer.zmmpomanages1pa",
+	"packageName": "$TMP",
+	"content": {
+		"targetAggregation": "groupElements",
+		"index": 4,
+		"fragmentPath": "fragments/groupElementTaxonomia.fragment.xml"
+	},
+	"selector": {
+		"id": "ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderItemTP--GeneralInformationFacet1::FormGroup",
+		"idIsLocal": false
+	},
+	"layer": "CUSTOMER_BASE",
+	"texts": {},
+	"namespace": "apps/ui.ssuite.s2p.mm.pur.po.manage.st.s1/changes/",
+	"projectId": "customer.zmmpomanages1pa",
+	"creation": "2023-06-06T12:20:56.667Z",
+	"originalLanguage": "ES",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.84.34",
+		"sourceChangeFileName": "",
+		"compositeCommand": "",
+		"command": "addXML"
+	},
+	"oDataInformation": {},
+	"dependentSelector": {},
+	"jsOnly": false,
+	"variantReference": "",
+	"appDescriptorChange": false
+}

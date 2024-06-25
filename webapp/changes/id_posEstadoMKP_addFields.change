@@ -1,0 +1,53 @@
+{
+	"fileName": "id_posEstadoMKP_addFields",
+	"fileType": "change",
+	"changeType": "addFields",
+	"moduleName": "",
+	"reference": "customer.zmmpomanages1pa",
+	"packageName": "$TMP",
+	"content": {
+		"field": {
+			"value": ["ZZ1_POS_STATE_INTMKP_PDI"],
+			"valueProperty": ["value"],
+			"selector": {
+				"id": "ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderItemTP--GeneralInformationFacet3::FormGroup_C_PurchaseOrderItemTPType_ZZ1_POS_STATE_INTMKP_PDI",
+				"idIsLocal": false
+			},
+			"jsTypes": ["sap.ui.comp.smartfield.SmartField"],
+			"index": 5
+		}
+	},
+	"selector": {
+		"id": "ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderItemTP--GeneralInformationFacet3::FormGroup",
+		"idIsLocal": false
+	},
+	"layer": "CUSTOMER_BASE",
+	"texts": {},
+	"namespace": "apps/ui.ssuite.s2p.mm.pur.po.manage.st.s1/changes/",
+	"projectId": "customer.zmmpomanages1pa",
+	"creation": "2022-10-22T09:37:19.639Z",
+	"originalLanguage": "ES",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.84.33",
+		"sourceChangeFileName": "",
+		"compositeCommand": "id_1666431438686_958_composite",
+		"command": "addDelegateProperty"
+	},
+	"oDataInformation": {
+		"oDataServiceUri": "/sap/opu/odata/sap/MM_PUR_PO_MAINT_V2_SRV/",
+		"propertyName": "ZZ1_POS_STATE_INTMKP_PDI",
+		"entityType": "C_PurchaseOrderItemTPType"
+	},
+	"dependentSelector": {
+		"form": {
+			"id": "ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderItemTP--GeneralInformationCollectionFacet::Form",
+			"idIsLocal": false
+		}
+	},
+	"jsOnly": false,
+	"variantReference": "ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderItemTP--template::ObjectPage::ObjectPageVariant",
+	"appDescriptorChange": false
+}

@@ -1,0 +1,41 @@
+{
+	"fileName": "id_bp_fechaentrega_addXML",
+	"fileType": "change",
+	"changeType": "addXML",
+	"moduleName": "customer/zmmpomanages1pav2/changes/fragments/BpFechaEntrega.fragment.xml",
+	"reference": "customer.zmmpomanages1pa",
+	"packageName": "$TMP",
+	"content": {
+		"targetAggregation": "sections",
+		"index": 4,
+		"fragmentPath": "fragments/BpFechaEntrega.fragment.xml"
+	},
+	"selector": {
+		"id": "ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderItemTP--objectPage",
+		"idIsLocal": false
+	},
+	"layer": "CUSTOMER_BASE",
+	"texts": {},
+	"namespace": "apps/ui.ssuite.s2p.mm.pur.po.manage.st.s1/changes/",
+	"projectId": "customer.zmmpomanages1pa",
+	"creation": "2022-10-06T11:01:07.609Z",
+	"originalLanguage": "ES",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.84.33",
+		"sourceChangeFileName": "",
+		"compositeCommand": ""
+	},
+	"oDataInformation": {},
+	"dependentSelector": {},
+	"validAppVersions": {
+		"creation": "8.0.5",
+		"from": "8.0.5",
+		"to": "8.0.5"
+	},
+	"jsOnly": false,
+	"variantReference": "",
+	"appDescriptorChange": false
+}

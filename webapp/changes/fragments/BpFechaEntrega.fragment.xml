@@ -1,0 +1,27 @@
+<!-- Use stable and unique IDs!-->
+<core:FragmentDefinition xmlns:core='sap.ui.core' xmlns:m='sap.m' xmlns="sap.uxap" xmlns:f="sap.ui.layout.form">
+	<!--  add your xml here -->
+    <ObjectPageSection showTitle="true" id="BpFESection" title="{i18n>BpFETitulo}" titleUppercase="false" >
+        <subSections>
+            <ObjectPageSubSection  id="BpFESubSection" titleUppercase="false">
+                <f:SimpleForm id="BpFESimpleForm" 
+                    editable="true"
+                    layout="ColumnLayout"
+                    columnsM="2"
+                    columnsL="2"
+                    columnsXL="4">
+                    <f:content>
+                        <m:Label text="{i18n>calle}" id="calleLabel"/>
+                        <m:Text id="calleText" text="{viewCfg>/BP/calle}"/>
+                        <m:Label text="{i18n>numero}" id="numeroLabel"/>
+                        <m:Text id="numeroText" text="{viewCfg>/BP/numero}"/>
+                        <m:Label text="{i18n>codigoPostal}" id="codigoPostalLabel"/>
+                        <m:Text id="codigoPostalText" text="{viewCfg>/BP/codigoPostal}"/>
+                        <m:Label text="{i18n>poblacion}" id="poblacionLabel"/>
+                        <m:Text id="poblacionText" text="{viewCfg>/BP/poblacion}"/>
+                    </f:content>
+                </f:SimpleForm>
+            </ObjectPageSubSection>
+        </subSections>
+    </ObjectPageSection>
+</core:FragmentDefinition>

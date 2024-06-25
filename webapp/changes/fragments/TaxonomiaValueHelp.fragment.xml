@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns="sap.ui.comp.valuehelpdialog" xmlns:m="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core">
+	<ValueHelpDialog id="ID_Taxonomia" afterOpen=".onValueHelpAfterOpenTaxonomia" title="{i18n>taxonomia}" ok=".onValueHelpOkPressTaxonomia" cancel=".onValueHelpCancelTaxonomia" afterClose=".onValueHelpAfterCloseTaxonomia" key="Taxonomia" descriptionKey="DescTaxonomia"
+		supportRanges="false">
+		<filterBar>
+			<fb:FilterBar advancedMode="true" search=".onFilterBarSearchTaxonomia">
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Taxonomia" label="{i18n>taxonomia}" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="Taxonomia"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="DescTaxonomia" label="{i18n>taxonomiadesc}" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="DescTaxonomia"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<!-- <fb:FilterGroupItem groupName="__$INTERNAL$" name="Idioma" label="{i18n>idioma}" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="Idioma"/>
+						</fb:control>
+					</fb:FilterGroupItem> -->
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Matkl" label="{i18n>grupodearticulos}" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="Matkl" value="{auxFilter>/Matkl}"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>
+			</fb:FilterBar>
+		</filterBar>
+	</ValueHelpDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.ui.comp.valuehelpdialog" xmlns:m="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core">
+	<ValueHelpDialog id="ID_PERFIL" title="Seleccionar Perfil" ok=".onValueHelpOkPressPerfil" cancel=".onValueHelpCancelPerfil" afterClose=".onValueHelpAfterClosePerfil" key="ZzPerfil" descriptionKey="ZzPerfildesc"
+		supportRanges="false">
+		<filterBar>
+			<fb:FilterBar advancedMode="true" search=".onFilterBarSearchPerfil">
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="ZzPerfil" label="Id" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="ZzPerfil"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="ZzPerfildesc" label="Descripción" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="ZzPerfildesc"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>
+			</fb:FilterBar>
+		</filterBar>
+	</ValueHelpDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.ui.comp.valuehelpdialog" xmlns:m="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core">
+	<ValueHelpDialog id="ID_OU" title="responsable EM" ok=".onValueHelpOkPressOU" cancel=".onValueHelpCancelOU" afterClose=".onValueHelpAfterCloseOU" key="Respymgmtteamid" descriptionKey="Respymgmtteamname"
+		supportRanges="false">
+		<filterBar>
+			<fb:FilterBar advancedMode="true" search=".onFilterBarSearchOU">
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Respymgmtglobalteamid" label="Responsable de EM" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="Respymgmtglobalteamid"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Respymgmtteamname" label="Responsable de EM (Descr.)" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="Respymgmtteamname"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>
+			</fb:FilterBar>
+		</filterBar>
+	</ValueHelpDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,31 @@
+<!-- Use stable and unique IDs!-->
+<core:FragmentDefinition xmlns:core='sap.ui.core' xmlns:m='sap.m' xmlns="sap.uxap" xmlns:f="sap.ui.layout.form">
+	<!--  add your xml here -->
+    <ObjectPageSection showTitle="true" id="TarjetasSimSection" title="Compra de Tarjetas SIM" titleUppercase="false" visible="false">
+        <subSections>
+            <ObjectPageSubSection title="Compra de Tarjetas SIM" id="TarjetasSimSubSection" titleUppercase="false" >
+                <f:SimpleForm id="SimpleFormChange358"
+                    editable="true"
+                    layout="ColumnLayout"
+                    columnsM="2"
+                    columnsL="2"
+                    columnsXL="4" >
+                    <f:content>
+                        <m:Label text="Nombre del fichero" id="SIMLabelFichero"/>
+                        <m:Input id="SIMInputFichero" value="{ZZ_FICHERO}"  editable="{= ${ui>/editable} ? true : false}"/>
+                        <m:Label text="Perfil" id="SIMLabelPerfil"/>
+                        <m:Input id="SIMInputPerfil" value="{ZZ_PERFIL}" maxLength="3" liveChange=".extension.customer.zmmpomanages1pa.DatosCliente.setOnlyNumeric" editable="{= ${ui>/editable} ? true : false}" showValueHelp="true" valueHelpRequest=".extension.customer.zmmpomanages1pa.DatosCliente.onValueHelpProfileSIM" />
+                        <m:Label text="ICC Inicial" id="SIMLabelICCINI" />
+                        <m:Input id="SIMInputICCINI" value="{ZZ_ICCDE}"  editable="{= ${ui>/editable} ? true : false}"/>
+                        <m:Label text="ICC Final" id="SIMLabelICCFIN"/>
+                        <m:Input id="SIMInputICCFIN" value="{ZZ_ICCHASTA}" editable="{= ${ui>/editable} ? true : false}"/>
+                        <m:Label text="Clase" id="SIMLabelClase"/>
+                        <m:Input id="SIMInputClase" value="{ZZ_CLASE}" maxLength="2" liveChange=".extension.customer.zmmpomanages1pa.DatosCliente.setOnlyNumeric" editable="{= ${ui>/editable} ? true : false}" showValueHelp="true" valueHelpRequest=".extension.customer.zmmpomanages1pa.DatosCliente.onValueHelpClaseSIM" />
+                        <m:Label text="Zona" id="SIMLabelZona"/>
+                        <m:Input id="SIMInputZona" value="{ZZ_ZONA}" maxLength="2" liveChange=".extension.customer.zmmpomanages1pa.DatosCliente.setOnlyNumeric" editable="{= ${ui>/editable} ? true : false}" showValueHelp="true" valueHelpRequest=".extension.customer.zmmpomanages1pa.DatosCliente.onValueHelpZonaSIM" />
+                    </f:content>
+                </f:SimpleForm>
+            </ObjectPageSubSection>
+        </subSections>
+    </ObjectPageSection>
+</core:FragmentDefinition>

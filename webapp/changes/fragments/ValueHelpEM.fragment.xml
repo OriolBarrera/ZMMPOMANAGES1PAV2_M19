@@ -1,0 +1,49 @@
+<!-- Use stable and unique IDs!-->
+<core:FragmentDefinition xmlns:core='sap.ui.core' xmlns='sap.m' xmlns:form="sap.ui.comp.smartform">
+	<form:GroupElement id="groupElementEM" label="{i18n>EM}">
+        <form:elements>
+            <Input 
+            id="inputContrEM" 
+            enabled="{= ${ui>/editable} &amp;&amp; ${PurchaseOrderType}!=='ZOR' ? true : false}" 
+            showValueHelp="true"
+            change=".extension.customer.zmmpomanages1pa.DatosCliente.onChangeInputEM"
+            showSuggestion="true"
+            valueHelpRequest=".extension.customer.zmmpomanages1pa.DatosCliente.onValueHelpOU"
+            suggestionRows="{ path: 'odataHelp>/MatchCodeResponsableEMSet'}"
+            suggestionItemSelected=".extension.customer.zmmpomanages1pa.DatosCliente.onSuggestedItemSelected"
+            > <!-- value="{ZZRESP_EM}" description="{ZZ1_RESP_EME_PRIT}"-->
+            <suggestionColumns>
+				<Column
+                    id="ColumnaId"
+					popinDisplay="Inline"
+					demandPopin="true">
+					<Label id="LabelId" text="ID" />
+				</Column>
+				<!--<Column
+                    id="ColumnaDescriptivo"
+					hAlign="Center"
+					popinDisplay="Inline"
+					demandPopin="true"
+					minScreenWidth="Tablet">
+					<Label id="LabelResEM" text="Responsable EM" />
+				</Column>-->
+			</suggestionColumns>
+
+			<suggestionRows>
+				<ColumnListItem id="ColumnItemEM">
+					<Label id="LabelItemId" text="{odataHelp>Respymgmtglobalteamid}" />
+					<!--<Label id="LabelItemDesc" text="{odataHelp>Respymgmtteamname}" />-->
+				</ColumnListItem>
+			</suggestionRows>
+
+			<!-- <suggestionItems>
+				<core:ListItem 
+                    id="EMItem"
+					key="{odataHelp>Respymgmtteamname}"
+					text="{odataHelp>Respymgmtteamid}"
+                    additionalText="{odataHelp>Respymgmtteamname}"/>
+			</suggestionItems> -->
+            </Input>
+        </form:elements>
+    </form:GroupElement>
+</core:FragmentDefinition>

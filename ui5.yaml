@@ -1,0 +1,36 @@
+specVersion: "3.0"
+metadata:
+  name: zmmpomanages1pav
+type: application
+resources:
+  configuration:
+    propertiesFileSourceEncoding: UTF-8
+customConfiguration:
+  adp:
+    safeMode: false
+    support:
+      id: '@sap/generator-adaptation-project'
+      version: 1.1.59
+      toolsId: 39b975c9-775a-4802-9380-caf42127407e
+server:
+  customMiddleware:
+    - name: fiori-tools-preview
+      afterMiddleware: compression
+      configuration:
+        adp:
+          target: 
+            destination: M19
+          ignoreCertErrors: false
+    - name: fiori-tools-proxy
+      afterMiddleware: fiori-tools-preview
+      configuration:
+        ignoreCertErrors: false
+        ui5:
+          version: 1.120.0
+          path:
+            - /resources
+            - /test-resources
+          url: https://sapui5.hana.ondemand.com
+        backend: 
+          - destination: M19
+            path: /sap

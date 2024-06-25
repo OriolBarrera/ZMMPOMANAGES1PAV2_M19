@@ -1,0 +1,41 @@
+{
+	"fileName": "id_datosReu_addXML",
+	"fileType": "change",
+	"changeType": "addXML",
+	"moduleName": "customer/zmmpomanages1pav2/changes/fragments/DatosREUSection.fragment.xml",
+	"reference": "customer.zmmpomanages1pa",
+	"packageName": "$TMP",
+	"content": {
+		"targetAggregation": "sections",
+		"index": 10,
+		"fragmentPath": "fragments/DatosREUSection.fragment.xml"
+	},
+	"selector": {
+		"id": "ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderTP--objectPage",
+		"idIsLocal": false
+	},
+	"layer": "CUSTOMER_BASE",
+	"texts": {},
+	"namespace": "apps/ui.ssuite.s2p.mm.pur.po.manage.st.s1/changes/",
+	"projectId": "customer.zmmpomanages1pa",
+	"creation": "2022-09-15T08:35:09.117Z",
+	"originalLanguage": "ES",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.84.33",
+		"sourceChangeFileName": "",
+		"compositeCommand": ""
+	},
+	"oDataInformation": {},
+	"dependentSelector": {},
+	"validAppVersions": {
+		"creation": "8.0.5",
+		"from": "8.0.5",
+		"to": "8.0.5"
+	},
+	"jsOnly": false,
+	"variantReference": "",
+	"appDescriptorChange": false
+}

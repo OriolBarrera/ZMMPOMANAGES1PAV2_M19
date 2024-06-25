@@ -1,0 +1,24 @@
+<core:FragmentDefinition xmlns:core='sap.ui.core' xmlns='sap.m' xmlns:uxap="sap.uxap" >
+    <Dialog>
+        <content>
+            <!--<UploadCollection items="{__attachmentData>/dataitems}" maximumFilenameLength="255" multiple="true" sameFilenameAllowed="true"
+             uploadEnabled="true" uploadUrl="/sap/opu/odata/sap/CV_ATTACHMENT_SRV/OriginalContentSet" change="sap.se.mi.plm.lib.attachmentservice.attachment.view.Attachment._onBeforeUploadFile">
+                <items>
+                    <UploadCollectionItem documentId="{__attachmentData>FileId}" 
+                    contributor="{__attachmentData>CreatedBy}" 
+                    fileName="{__attachmentData>Filename}"
+                   
+                    mimeType="{__attachmentData>content_type}"
+                    uploadedDate="{__attachmentData>CreatedAt}"
+                    ></UploadCollectionItem>
+                </items>
+            
+            </UploadCollection>-->
+            <core:ComponentContainer name="sap.se.mi.plm.lib.attachmentservice.attachment.components.stcomponent"	
+			    component="sap.se.mi.plm.lib.attachmentservice.attachment.components.stcomponent"></core:ComponentContainer>
+        </content>
+        <buttons>
+            <Button text="{i18n>cancelar}"></Button>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

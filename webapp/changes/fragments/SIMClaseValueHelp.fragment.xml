@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.ui.comp.valuehelpdialog" xmlns:m="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core">
+	<ValueHelpDialog id="ID_CLASE" title="Seleccionar Clase" ok=".onValueHelpOkPressClase" cancel=".onValueHelpCancelClase" afterClose=".onValueHelpAfterCloseClase" key="ZzClase" descriptionKey="ZzClasedesc"
+		supportRanges="false">
+		<filterBar>
+			<fb:FilterBar advancedMode="true" search=".onFilterBarSearchClase">
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="ZzClase" label="Id" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="ZzClase"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="ZzClasedesc" label="Descripción" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="ZzClasedesc"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>
+			</fb:FilterBar>
+		</filterBar>
+	</ValueHelpDialog>
+</core:FragmentDefinition>

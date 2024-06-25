@@ -1,0 +1,45 @@
+<!-- Use stable and unique IDs!-->
+<core:FragmentDefinition xmlns:core='sap.ui.core' xmlns:m='sap.m' xmlns="sap.uxap" xmlns:f="sap.ui.layout.form">
+	<!--  add your xml here -->
+    <ObjectPageSection showTitle="true" id="DatosREUSection" title="{i18n>datosREU}" titleUppercase="false" visible="{= ((${PurchaseOrderType} === 'ZNM') || (${PurchaseOrderType} === 'ZLT') || (${PurchaseOrderType} === 'ZDE') || (${PurchaseOrderType} === 'ZOR')) ? true : false}" >
+        <subSections>
+            <ObjectPageSubSection  id="DatosREUSubSection" titleUppercase="false">
+                <m:VBox class="sapUiSmallMargin" id="vboxSection">
+                    <f:SimpleForm id="SimpleFormDisplay480_Trial"
+                        editable="false"
+                        layout="ColumnLayout"
+                        columnsM="2"
+                        columnsL="3"
+                        columnsXL="4"
+                        >
+                        <f:content>
+                            <core:Title text="{i18n>reuLeyDeContratos}" id="REUTitle"/>
+                            <m:CheckBox enabled="{= ${ui>/editable} &amp;&amp; (${PurchaseOrderType} !== 'ZOR')}" text="{i18n>sujetoAReu}" id="sReuCheckBox" selected="{zzflag_reu}" select="onSelectedREU"/>
+                            <m:Label required="{= ${zzflag_reu} ? true : false}" text="{i18n>refContratoReu}" id="refReuLabel"/>
+                            <m:Input enabled="{= ${ui>/editable} &amp;&amp; (${PurchaseOrderType} !== 'ZOR')}" maxLength="64" id="refReuInput" value="{zzcontr_reu}"/>
+                            <core:Title text="{i18n>dir3}" id="DIR3title"/>
+                            <m:Label text="{i18n>organoGestor}" id="oGestorLabel"/>
+                            <m:Input enabled="{= ${ui>/editable} &amp;&amp; (${PurchaseOrderType} !== 'ZOR')}" maxLength="9" id="oGestorInput" value="{zzdir32_reu}"/>
+                            <m:Label text="{i18n>unidadTramitadora}" id="uTramitadoraLabel"/>
+                            <m:Input enabled="{= ${ui>/editable} &amp;&amp; (${PurchaseOrderType} !== 'ZOR')}"  maxLength="9" id="uTramitadoraInput" value="{zzdir33_reu}"/>
+                            <m:Label text="{i18n>oficinaContable}" id="oContableLabel"/>
+                            <m:Input enabled="{= ${ui>/editable} &amp;&amp; (${PurchaseOrderType} !== 'ZOR')}"  maxLength="9" id="oContableInput" value="{zzdir3_reu}"/>
+                            <core:Title text="{i18n>dire}" id="DIRetitle"/>
+                            <m:Label text="{i18n>empresaSolicitante}" id="eSolicitanteLabel"/>
+                            <m:Select  enabled="{= ${ui>/editable} &amp;&amp; (${PurchaseOrderType} !== 'ZOR')}" forceSelection="false" items="{/C_MM_CompanyCodeValueHelp}"  id="eSolicitanteSelect" selectedKey="{zzdire3_reu}">
+                                <core:Item key="{CompanyCode}" text="{CompanyCode} - {CompanyCodeName}" id="eSolicitanteSelectItem"/>
+                            </m:Select>                            
+                            <m:Label text="{i18n>unidad1}" id="u1Label"/>
+                            <m:Input  enabled="{= ${ui>/editable} &amp;&amp; (${PurchaseOrderType} !== 'ZOR')}" maxLength="15"  id="u1Input" value="{zzdire_reu}"/> 
+                            <m:Label text="{i18n>unidad2}" id="u2Label"/>
+                            <m:Input  enabled="{= ${ui>/editable} &amp;&amp; (${PurchaseOrderType} !== 'ZOR')}" maxLength="15" id="u2Input" value="{zzdire2_reu}"/>
+
+
+
+                        </f:content>
+                    </f:SimpleForm>
+                </m:VBox>
+            </ObjectPageSubSection>
+        </subSections>
+    </ObjectPageSection>
+</core:FragmentDefinition>

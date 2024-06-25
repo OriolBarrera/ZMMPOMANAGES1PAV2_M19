@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.ui.comp.valuehelpdialog" xmlns:m="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core">
+	<ValueHelpDialog id="ID_ZONA" title="Seleccionar Zona" ok=".onValueHelpOkPressZona" cancel=".onValueHelpCancelZona" afterClose=".onValueHelpAfterCloseZona" key="ZzZonas" descriptionKey="ZzDescripcion"
+		supportRanges="false">
+		<filterBar>
+			<fb:FilterBar advancedMode="true" search=".onFilterBarSearchZona">
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="ZzZonas" label="Id" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="ZzZonas"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="ZzDescripcion" label="Descripción" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="ZzDescripcion"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>
+			</fb:FilterBar>
+		</filterBar>
+	</ValueHelpDialog>
+</core:FragmentDefinition>
