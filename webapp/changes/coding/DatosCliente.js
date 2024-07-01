@@ -54,6 +54,7 @@ sap.ui.define([
                     // BEGIN REFACTOR TAXONOMIA - RJV - 05/06/2023
                     this.getView().setModel(new sap.ui.model.odata.v2.ODataModel("/sap/opu/odata/sap/ZCDS_F4_RELTAXGRU_CDS"), "ZCDS_F4_RELTAXGRU_CDS");
                     this.getView().setModel(new sap.ui.model.json.JSONModel(), "JSON_MDL");
+                    this.getView().setModel(new sap.ui.model.odata.v2.ODataModel("/sap/opu/odata/sap/ZMM_PURCHASEGROUP_SH_REL_TABLE_SRV"), "ZMM_PURCHASEGROUP_SH_REL_TABLE_SRV");
                     // END REFACTOR TAXONOMIA - RJV - 05/06/2023
                     /* BORRAR REFACTOR 
                     //BEGIN JMD: ESFU CO124
@@ -180,21 +181,29 @@ sap.ui.define([
                                 var taxBenefValue = sap.ui.getCore().byId("ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderItemTP--GeneralInformationFacet3::FormGroup_C_PurchaseOrderItemTPType_ZZ1_TAX_BENEFIT_VALUE_PDI");
                                 var taxBenefValueLabel = sap.ui.getCore().byId("ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderItemTP--GeneralInformationFacet3::FormGroup_C_PurchaseOrderItemTPType_ZZ1_TAX_BENEFIT_VALUE_PDI-element0-label");
                                 if (taxBenefFlag && taxBenefValue) {
+                                    var oTaxBenefInputFlag = taxBenefFlag.getFields()[0];
+                                    var oValueTaxBenef = taxBenefValue.getFields()[0];
+                                    var idDescripcion = sap.ui.getCore().byId("ui.ssuite.s2p.mm.pur.po.manage.st.zs1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderItemTP--GeneralInformationFacet1::PurchaseOrderItemText::Field-input");
+                                    if(idDescripcion){
+                                        oTaxBenefInputFlag.setFieldGroupIds(idDescripcion.getProperty("fieldGroupIds"));
+                                        oValueTaxBenef.setFieldGroupIds(idDescripcion.getProperty("fieldGroupIds"));
+                                    }
                                     var aGermanyCodes = ["1156","1176","1269","1270","1275","1470","1834","1837","1841","1845","1850","1885","1886","1887","1923"];
                                     var sCompanyCode = this.getView().getBindingContext().getObject().CompanyCode;
                                     var sPurOrg= this.getView().getBindingContext().getObject().PurchasingOrganization;
-                                    if (sCompanyCode && (aGermanyCodes.includes(sCompanyCode) || aGermanyCodes.includes(sPurOrg))) {
-                                        taxBenefFlag.setVisible(true);
-                                        taxBenefValue.setVisible(true);
-                                        taxBenefLabel.setRequired(true);
-                                    } else {
-                                        taxBenefFlag.setVisible(false);
-                                        taxBenefValue.setVisible(false);
-                                        taxBenefLabel.setRequired(false);
+                                    if(sCompanyCode && sPurOrg){
+                                        if (aGermanyCodes.includes(sCompanyCode) || aGermanyCodes.includes(sPurOrg)) {
+                                            taxBenefFlag.setVisible(true);
+                                            taxBenefValue.setVisible(true);
+                                            taxBenefLabel.setRequired(true);
+                                        } else {
+                                            taxBenefFlag.setVisible(false);
+                                            taxBenefValue.setVisible(false);
+                                            taxBenefLabel.setRequired(false);
+                                        }
                                     }
-
                                     var oValueTaxBenefFlag = taxBenefFlag.getFields()[0].getValue() ? taxBenefFlag.getFields()[0].getValue() : "";
-                                    if (oValueTaxBenefFlag.includes("SI") || oValueTaxBenefFlag.includes("NO") ) {
+                                    if (oValueTaxBenefFlag.includes("SI")) {
                                         taxBenefValueLabel.setRequired(true);
                                     }else{
                                         taxBenefValueLabel.setRequired(false);
@@ -551,6 +560,7 @@ sap.ui.define([
                                     var sPurOrg = this.getView().getBindingContext().getObject().PurchasingOrganization;
                                     this._validateAlemaniaHeader(sBukrs,sPurOrg);
                                 }
+                                this.purchaseGroupRel();
                             }
                             // BEGIN - CO114 - RJV - 22/10/2022
                             this.logicEstadoMKP();
@@ -1999,6 +2009,74 @@ sap.ui.define([
                 
             },
             */
+            purchaseGroupRel: function (){
+                var sBukrs="";
+                var sPurchasingGroup="";
+                if (this.getView().getBindingContext() && this.getView().getBindingContext().getObject()) {
+                    sBukrs = this.getView().getBindingContext().getObject().CompanyCode ? this.getView().getBindingContext().getObject().CompanyCode : "";
+                    sPurchasingGroup = this.getView().getBindingContext().getObject().PurchasingGroup ? this.getView().getBindingContext().getObject().PurchasingGroup : "";
+                }
+
+                if (sBukrs !== "" && sBukrs !== undefined) {
+                    var idTableGrupoCompr = sap.ui.getCore().byId(
+                        "ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderTP--GeneralInformationFacet2::PurchasingGroup::Field-input-valueHelpDialog-table"
+                    );
+                    var valueHelpGrupoCompr = sap.ui.getCore().byId(
+                        "ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderTP--GeneralInformationFacet2::PurchasingGroup::Field-input-valueHelpDialog"
+                    );
+
+                    if (idTableGrupoCompr !== undefined) {
+                        if (valueHelpGrupoCompr.data("OUT") !== true) {
+                            valueHelpGrupoCompr.data("OUT", true);
+                            this.getView().getModel("ZMM_PURCHASEGROUP_SH_REL_TABLE_SRV").read("/Purchase_group_relationSet", {
+                            filters: [new sap.ui.model.Filter("Zzsociedad", "EQ", sBukrs)],
+                            success: function (data) {
+                                var a_FilterBukrs = [];
+                                data.results.forEach(function (line) {
+                                    var oFilterGroup = new sap.ui.model.Filter("PurchasingGroup", "EQ", line.Zzgc);
+                                    a_FilterBukrs.push(oFilterGroup)
+                                });
+                                if (a_FilterBukrs.length === 0) {
+                                    idTableGrupoCompr.getBinding("rows").filter([new sap.ui.model.Filter("PurchasingGroup", "EQ", "")]);
+                                } else {
+                                    idTableGrupoCompr.getBinding("rows").filter(a_FilterBukrs);
+                                }
+                            }
+                        });
+                        }
+                    }
+                }
+
+                if (sPurchasingGroup !== "" && sPurchasingGroup !== undefined) {
+                    var idTableSociedad = sap.ui.getCore().byId(
+                        "ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderTP--GeneralInformationFacet2::CompanyCode::Field-input-valueHelpDialog-table"
+                    );
+                    var valueHelpSociedad = sap.ui.getCore().byId(
+                        "ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderTP--GeneralInformationFacet2::CompanyCode::Field-input-valueHelpDialog"
+                    );
+
+                    if (idTableSociedad !== undefined) {
+                        if (valueHelpSociedad.data("OUT") !== true) {
+                            valueHelpSociedad.data("OUT", true);
+                            this.getView().getModel("ZMM_PURCHASEGROUP_SH_REL_TABLE_SRV").read("/Purchase_group_relationSet", {
+                            filters: [new sap.ui.model.Filter("Zzgc", "EQ", sPurchasingGroup)],
+                            success: function (data) {
+                                var a_Filter = [];
+                                data.results.forEach(function (line) {
+                                    var oFilterGroup = new sap.ui.model.Filter("CompanyCode", "EQ", line.Zzsociedad);
+                                    a_Filter.push(oFilterGroup)
+                                });
+                                if (a_Filter.length === 0) {
+                                    idTableSociedad.getBinding("rows").filter([new sap.ui.model.Filter("CompanyCode", "EQ", "")]);
+                                } else {
+                                    idTableSociedad.getBinding("rows").filter(a_Filter);
+                                }
+                            }
+                        });
+                        }
+                    }
+                }
+            },
             onAfterRenderingTaxonomia: function () {
                 /* BORRAR REFACTOR 
                         var localmodel, idTaxo_, idGrupoArticulo, valueGrupoArticulo, idInpTaxonomia, idTextTaxonomia,

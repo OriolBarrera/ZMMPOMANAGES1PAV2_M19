@@ -12,14 +12,14 @@
                     columnsXL="4">
                     <f:content>
                         <m:Label text="{i18n>entregacasacliente}" id="EntregaCasaLabel"/>
-                        <m:CheckBox id="EntregaCasaCheckBox" enabled="{= ${PurchaseOrder} === ''}" selected="{ZZ1_FLAGBPCliente_PDI}" select=".extension.customer.zmmpomanages1pa.DatosCliente.onSelectBP"/>
+                        <m:CheckBox id="EntregaCasaCheckBox" enabled="{ui>/editable}" selected="{ZZ1_FLAGBPCliente_PDI}" select=".extension.customer.zmmpomanages1pa.DatosCliente.onSelectBP"/>
                         <m:Label text="{i18n>bpcliente}" id="BPClienteLabel" visible="{= ${ZZ1_FLAGBPCliente_PDI} ? true : false}"/>
-                        <m:Input id="BPClienteInput" value="{ZZ1_BPCliente_PDI}" change=".extension.customer.zmmpomanages1pa.DatosCliente.onSelectDireccion" modelContextChange=".extension.customer.zmmpomanages1pa.DatosCliente.onSelectDireccion"  enabled="{= ${PurchaseOrder} === ''}" showValueHelp="true" visible="{= ${ZZ1_FLAGBPCliente_PDI} ? true : false}" required="true" valueHelpRequest=".extension.customer.zmmpomanages1pa.DatosCliente.onValueRequestBPC"/>
+                        <m:Input id="BPClienteInput" value="{ZZ1_BPCliente_PDI}" change=".extension.customer.zmmpomanages1pa.DatosCliente.onSelectDireccion" modelContextChange=".extension.customer.zmmpomanages1pa.DatosCliente.onSelectDireccion"  enabled="{ui>/editable}" showValueHelp="true" visible="{= ${ZZ1_FLAGBPCliente_PDI} ? true : false}" required="true" valueHelpRequest=".extension.customer.zmmpomanages1pa.DatosCliente.onValueRequestBPC"/>
                         <m:Label text="{i18n>direccionescliente}" id="DireccionesClienteLabel" visible="{= ${ZZ1_FLAGBPCliente_PDI} ? true : false}"/>
                         <m:Select id="DireccionesClienteSelect" forceSelection="false" change=".extension.customer.zmmpomanages1pa.DatosCliente.onChangeDireccion" selectedKey="{ZZ1_direccionBP_PDI}" enabled="{ui>/editable}" visible="{= ${ZZ1_FLAGBPCliente_PDI} ? true : false}" >
                         </m:Select>
                         <m:Label text="{i18n>aplicaalpedidocompleto}" id="AplicaPedidoLabel" visible="{= ${ZZ1_FLAGBPCliente_PDI} ? true : false}"/>
-                        <m:CheckBox id="AplicaPedidoCheckBox" selected="{ZZ1_aplicarPosiciones_PDI}" enabled="{= ${PurchaseOrder} === ''}" visible="{= ${ZZ1_FLAGBPCliente_PDI} ? true : false}"/>
+                        <m:CheckBox id="AplicaPedidoCheckBox" selected="{ZZ1_aplicarPosiciones_PDI}" enabled="{ui>/editable}" visible="{= ${ZZ1_FLAGBPCliente_PDI} ? true : false}"/>
                     </f:content>
                 </f:SimpleForm>
             </ObjectPageSubSection>
