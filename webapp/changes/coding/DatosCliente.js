@@ -1778,9 +1778,9 @@ sap.ui.define([
                 sap.ui.getCore().byId(root + "deleteBut") ? sap.ui.getCore().byId(root + "deleteBut").setEnabled(false) : '';
                 sap.ui.getCore().byId(root + "ItemsFacet::addEntry") ? sap.ui.getCore().byId(root + "ItemsFacet::addEntry").setEnabled(false) : '';
                 sap.ui.getCore().byId(root + "ItemsFacet::pasteEntries") ? sap.ui.getCore().byId(root + "ItemsFacet::pasteEntries").setEnabled(false) : '';
-                sap.ui.getCore().byId(root + "restoreLimitBut") ? sap.ui.getCore().byId(root + "restoreLimitBut").setEnabled(false) : '';
-                sap.ui.getCore().byId(root + "deleteLimitBut") ? sap.ui.getCore().byId(root + "deleteLimitBut").setEnabled(false) : '';
-                sap.ui.getCore().byId(root + "creLimitItemBut") ? sap.ui.getCore().byId(root + "creLimitItemBut").setEnabled(false) : '';
+                sap.ui.getCore().byId(root + "restoreLimitBut") ? sap.ui.getCore().byId(root + "restoreLimitBut").setBlocked(true) : '';
+                sap.ui.getCore().byId(root + "deleteLimitBut") ? sap.ui.getCore().byId(root + "deleteLimitBut").setBlocked(true) : '';
+                sap.ui.getCore().byId(root + "creLimitItemBut") ? sap.ui.getCore().byId(root + "creLimitItemBut").setBlocked(true) : '';
                 sap.ui.getCore().byId(root + "LimitItemsFacet::addEntry") ? sap.ui.getCore().byId(root + "LimitItemsFacet::addEntry").setEnabled(false) : '';
                 sap.ui.getCore().byId(root + "LimitItemsFacet::pasteEntries") ? sap.ui.getCore().byId(root + "LimitItemsFacet::pasteEntries").setEnabled(false) : '';
                 sap.ui.getCore().byId(root + "GeneralInformationFacet3::FormGroup_C_PurchaseOrderTPType_ZZ1_RESP_EM-element0") ? sap.ui.getCore().byId(root + "GeneralInformationFacet3::FormGroup_C_PurchaseOrderTPType_ZZ1_RESP_EM-element0").setEnabled(false) : '';
@@ -1824,9 +1824,9 @@ sap.ui.define([
                 sap.ui.getCore().byId(root + "deleteBut") ? sap.ui.getCore().byId(root + "deleteBut").setEnabled(true) : '';
                 sap.ui.getCore().byId(root + "ItemsFacet::addEntry") ? sap.ui.getCore().byId(root + "ItemsFacet::addEntry").setEnabled(true) : '';
                 sap.ui.getCore().byId(root + "ItemsFacet::pasteEntries") ? sap.ui.getCore().byId(root + "ItemsFacet::pasteEntries").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "restoreLimitBut") ? sap.ui.getCore().byId(root + "restoreLimitBut").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "deleteLimitBut") ? sap.ui.getCore().byId(root + "deleteLimitBut").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "creLimitItemBut") ? sap.ui.getCore().byId(root + "creLimitItemBut").setEnabled(true) : '';
+                sap.ui.getCore().byId(root + "restoreLimitBut") ? sap.ui.getCore().byId(root + "restoreLimitBut").setBlocked(false) : '';
+                sap.ui.getCore().byId(root + "deleteLimitBut") ? sap.ui.getCore().byId(root + "deleteLimitBut").setBlocked(false) : '';
+                sap.ui.getCore().byId(root + "creLimitItemBut") ? sap.ui.getCore().byId(root + "creLimitItemBut").setBlocked(false) : '';
                 sap.ui.getCore().byId(root + "LimitItemsFacet::addEntry") ? sap.ui.getCore().byId(root + "LimitItemsFacet::addEntry").setEnabled(true) : '';
                 sap.ui.getCore().byId(root + "LimitItemsFacet::pasteEntries") ? sap.ui.getCore().byId(root + "LimitItemsFacet::pasteEntries").setEnabled(true) : '';
                 sap.ui.getCore().byId(root + "GeneralInformationFacet3::FormGroup_C_PurchaseOrderTPType_ZZ1_RESP_EM-element0") ? sap.ui.getCore().byId(root + "GeneralInformationFacet3::FormGroup_C_PurchaseOrderTPType_ZZ1_RESP_EM-element0").setEnabled(true) : '';
