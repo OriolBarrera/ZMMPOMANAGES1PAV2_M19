@@ -156,7 +156,8 @@ sap.ui.define([
                                 var idDescripcion = sap.ui.getCore().byId("ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderItemTP--GeneralInformationFacet1::PurchaseOrderItemText::Field-input");
                                 // BEGIN REFACTOR TAXONOMIA - RJV - 05/06/2023
                                 //Es necesario para, que al modificar la taxonomia, se recargue y traiga el grupo de articulos si hay relación 1:1
-                                var idInpTaxonomia = this.getView().byId("customer.zmmpomanages1pa.inputTaxonomia");
+                                var idInpTaxonomia = sap.ui.getCore().byId("ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderItemTP--customer.zmmpomanages1pa.inputTaxonomia")
+                                
                                 if (idDescripcion && idInpTaxonomia) {
                                     idInpTaxonomia.setFieldGroupIds(idDescripcion.mProperties.fieldGroupIds);
                                 }
@@ -1790,47 +1791,48 @@ sap.ui.define([
             setFieldsEnabledZOR: function () {
                 var root = "ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderTP--";
                 //sap.ui.getCore().byId(root + "GeneralInformationFacet1::PurchaseOrderType::Field") ? sap.ui.getCore().byId(root + "GeneralInformationFacet1::PurchaseOrderType::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "GeneralInformationFacet1::DocumentCurrency::Field") ? sap.ui.getCore().byId(root + "GeneralInformationFacet1::DocumentCurrency::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "GeneralInformationFacet2::PurchasingGroup::Field") ? sap.ui.getCore().byId(root + "GeneralInformationFacet2::PurchasingGroup::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "GeneralInformationFacet2::PurchasingOrganization::Field") ? sap.ui.getCore().byId(root + "GeneralInformationFacet2::PurchasingOrganization::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "GeneralInformationFacet2::CompanyCode::Field") ? sap.ui.getCore().byId(root + "GeneralInformationFacet2::CompanyCode::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "customer.zmmpomanages1pa.inputContrEM") ? sap.ui.getCore().byId(root + "customer.zmmpomanages1pa.inputContrEM").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "DeliveryInvoiceFacet1::PaymentTerms::Field") ? sap.ui.getCore().byId(root + "DeliveryInvoiceFacet1::PaymentTerms::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "CashDiscount1Days") ? sap.ui.getCore().byId(root + "CashDiscount1Days").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "CashDiscount1Percent") ? sap.ui.getCore().byId(root + "CashDiscount1Percent").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "CashDiscount2Days") ? sap.ui.getCore().byId(root + "CashDiscount2Days").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "CashDiscount2Percent") ? sap.ui.getCore().byId(root + "CashDiscount2Percent").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "NetPaymentDays") ? sap.ui.getCore().byId(root + "NetPaymentDays").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "DeliveryInvoiceFacet2::IncotermsClassification::Field") ? sap.ui.getCore().byId(root + "DeliveryInvoiceFacet2::IncotermsClassification::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "DeliveryInvoiceFacet2::IncotermsLocation1::Field") ? sap.ui.getCore().byId(root + "DeliveryInvoiceFacet2::IncotermsLocation1::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "DeliveryInvoiceFacet3::InvoicingParty::Field") ? sap.ui.getCore().byId(root + "DeliveryInvoiceFacet3::InvoicingParty::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "DeliveryInvoiceFacet3::ExchangeRateForEdit::Field") ? sap.ui.getCore().byId(root + "DeliveryInvoiceFacet3::ExchangeRateForEdit::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "DeliveryInvoiceFacet3::ExchangeRateIsFixed::Field") ? sap.ui.getCore().byId(root + "DeliveryInvoiceFacet3::ExchangeRateIsFixed::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "SupplierAddressFacet1::FullName::Field") ? sap.ui.getCore().byId(root + "SupplierAddressFacet1::FullName::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "SupplierAddressFacet1::StreetName::Field") ? sap.ui.getCore().byId(root + "SupplierAddressFacet1::StreetName::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "SupplierAddressFacet1::HouseNumber::Field") ? sap.ui.getCore().byId(root + "SupplierAddressFacet1::HouseNumber::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "SupplierAddressFacet2::PostalCode::Field") ? sap.ui.getCore().byId(root + "SupplierAddressFacet2::PostalCode::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "SupplierAddressFacet2::CityName::Field") ? sap.ui.getCore().byId(root + "SupplierAddressFacet2::CityName::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "SupplierAddressFacet2::Country::Field") ? sap.ui.getCore().byId(root + "SupplierAddressFacet2::Country::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "SupplierAddressFacet2::Region::Field") ? sap.ui.getCore().byId(root + "SupplierAddressFacet2::Region::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "SupplierAddressFacet3::PhoneNumber::Field") ? sap.ui.getCore().byId(root + "SupplierAddressFacet3::PhoneNumber::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "SupplierAddressFacet3::FaxNumber::Field") ? sap.ui.getCore().byId(root + "SupplierAddressFacet3::FaxNumber::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "SupplierContactPersonFacet::SupplierRespSalesPersonName::Field") ? sap.ui.getCore().byId(root + "SupplierContactPersonFacet::SupplierRespSalesPersonName::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "SupplierContactPersonFacet::SupplierPhoneNumber::Field") ? sap.ui.getCore().byId(root + "SupplierContactPersonFacet::SupplierPhoneNumber::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "SupplierContactPersonFacet::CorrespncExternalReference::Field") ? sap.ui.getCore().byId(root + "SupplierContactPersonFacet::CorrespncExternalReference::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "SupplierContactPersonFacet::CorrespncInternalReference::Field") ? sap.ui.getCore().byId(root + "SupplierContactPersonFacet::CorrespncInternalReference::Field").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "creWitRefBut") ? sap.ui.getCore().byId(root + "creWitRefBut").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "restoreBut") ? sap.ui.getCore().byId(root + "restoreBut").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "deleteBut") ? sap.ui.getCore().byId(root + "deleteBut").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "ItemsFacet::addEntry") ? sap.ui.getCore().byId(root + "ItemsFacet::addEntry").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "ItemsFacet::pasteEntries") ? sap.ui.getCore().byId(root + "ItemsFacet::pasteEntries").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "restoreLimitBut") ? sap.ui.getCore().byId(root + "restoreLimitBut").setBlocked(false) : '';
-                sap.ui.getCore().byId(root + "deleteLimitBut") ? sap.ui.getCore().byId(root + "deleteLimitBut").setBlocked(false) : '';
-                sap.ui.getCore().byId(root + "creLimitItemBut") ? sap.ui.getCore().byId(root + "creLimitItemBut").setBlocked(false) : '';
-                sap.ui.getCore().byId(root + "LimitItemsFacet::addEntry") ? sap.ui.getCore().byId(root + "LimitItemsFacet::addEntry").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "LimitItemsFacet::pasteEntries") ? sap.ui.getCore().byId(root + "LimitItemsFacet::pasteEntries").setEnabled(true) : '';
-                sap.ui.getCore().byId(root + "GeneralInformationFacet3::FormGroup_C_PurchaseOrderTPType_ZZ1_RESP_EM-element0") ? sap.ui.getCore().byId(root + "GeneralInformationFacet3::FormGroup_C_PurchaseOrderTPType_ZZ1_RESP_EM-element0").setEnabled(true) : '';
-
+                if(sap.ui.getCore().byId(root + "customer.zmmpomanages1pa.inputContrEM").getModel("ui").getData.editable === true){
+                    sap.ui.getCore().byId(root + "GeneralInformationFacet1::DocumentCurrency::Field") ? sap.ui.getCore().byId(root + "GeneralInformationFacet1::DocumentCurrency::Field").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "GeneralInformationFacet2::PurchasingGroup::Field") ? sap.ui.getCore().byId(root + "GeneralInformationFacet2::PurchasingGroup::Field").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "GeneralInformationFacet2::PurchasingOrganization::Field") ? sap.ui.getCore().byId(root + "GeneralInformationFacet2::PurchasingOrganization::Field").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "GeneralInformationFacet2::CompanyCode::Field") ? sap.ui.getCore().byId(root + "GeneralInformationFacet2::CompanyCode::Field").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "customer.zmmpomanages1pa.inputContrEM") ? sap.ui.getCore().byId(root + "customer.zmmpomanages1pa.inputContrEM").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "DeliveryInvoiceFacet1::PaymentTerms::Field") ? sap.ui.getCore().byId(root + "DeliveryInvoiceFacet1::PaymentTerms::Field").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "CashDiscount1Days") ? sap.ui.getCore().byId(root + "CashDiscount1Days").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "CashDiscount1Percent") ? sap.ui.getCore().byId(root + "CashDiscount1Percent").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "CashDiscount2Days") ? sap.ui.getCore().byId(root + "CashDiscount2Days").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "CashDiscount2Percent") ? sap.ui.getCore().byId(root + "CashDiscount2Percent").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "NetPaymentDays") ? sap.ui.getCore().byId(root + "NetPaymentDays").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "DeliveryInvoiceFacet2::IncotermsClassification::Field") ? sap.ui.getCore().byId(root + "DeliveryInvoiceFacet2::IncotermsClassification::Field").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "DeliveryInvoiceFacet2::IncotermsLocation1::Field") ? sap.ui.getCore().byId(root + "DeliveryInvoiceFacet2::IncotermsLocation1::Field").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "DeliveryInvoiceFacet3::InvoicingParty::Field") ? sap.ui.getCore().byId(root + "DeliveryInvoiceFacet3::InvoicingParty::Field").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "DeliveryInvoiceFacet3::ExchangeRateForEdit::Field") ? sap.ui.getCore().byId(root + "DeliveryInvoiceFacet3::ExchangeRateForEdit::Field").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "DeliveryInvoiceFacet3::ExchangeRateIsFixed::Field") ? sap.ui.getCore().byId(root + "DeliveryInvoiceFacet3::ExchangeRateIsFixed::Field").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "SupplierAddressFacet1::FullName::Field") ? sap.ui.getCore().byId(root + "SupplierAddressFacet1::FullName::Field").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "SupplierAddressFacet1::StreetName::Field") ? sap.ui.getCore().byId(root + "SupplierAddressFacet1::StreetName::Field").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "SupplierAddressFacet1::HouseNumber::Field") ? sap.ui.getCore().byId(root + "SupplierAddressFacet1::HouseNumber::Field").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "SupplierAddressFacet2::PostalCode::Field") ? sap.ui.getCore().byId(root + "SupplierAddressFacet2::PostalCode::Field").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "SupplierAddressFacet2::CityName::Field") ? sap.ui.getCore().byId(root + "SupplierAddressFacet2::CityName::Field").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "SupplierAddressFacet2::Country::Field") ? sap.ui.getCore().byId(root + "SupplierAddressFacet2::Country::Field").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "SupplierAddressFacet2::Region::Field") ? sap.ui.getCore().byId(root + "SupplierAddressFacet2::Region::Field").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "SupplierAddressFacet3::PhoneNumber::Field") ? sap.ui.getCore().byId(root + "SupplierAddressFacet3::PhoneNumber::Field").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "SupplierAddressFacet3::FaxNumber::Field") ? sap.ui.getCore().byId(root + "SupplierAddressFacet3::FaxNumber::Field").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "SupplierContactPersonFacet::SupplierRespSalesPersonName::Field") ? sap.ui.getCore().byId(root + "SupplierContactPersonFacet::SupplierRespSalesPersonName::Field").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "SupplierContactPersonFacet::SupplierPhoneNumber::Field") ? sap.ui.getCore().byId(root + "SupplierContactPersonFacet::SupplierPhoneNumber::Field").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "SupplierContactPersonFacet::CorrespncExternalReference::Field") ? sap.ui.getCore().byId(root + "SupplierContactPersonFacet::CorrespncExternalReference::Field").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "SupplierContactPersonFacet::CorrespncInternalReference::Field") ? sap.ui.getCore().byId(root + "SupplierContactPersonFacet::CorrespncInternalReference::Field").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "creWitRefBut") ? sap.ui.getCore().byId(root + "creWitRefBut").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "restoreBut") ? sap.ui.getCore().byId(root + "restoreBut").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "deleteBut") ? sap.ui.getCore().byId(root + "deleteBut").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "ItemsFacet::addEntry") ? sap.ui.getCore().byId(root + "ItemsFacet::addEntry").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "ItemsFacet::pasteEntries") ? sap.ui.getCore().byId(root + "ItemsFacet::pasteEntries").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "restoreLimitBut") ? sap.ui.getCore().byId(root + "restoreLimitBut").setBlocked(false) : '';
+                    sap.ui.getCore().byId(root + "deleteLimitBut") ? sap.ui.getCore().byId(root + "deleteLimitBut").setBlocked(false) : '';
+                    sap.ui.getCore().byId(root + "creLimitItemBut") ? sap.ui.getCore().byId(root + "creLimitItemBut").setBlocked(false) : '';
+                    sap.ui.getCore().byId(root + "LimitItemsFacet::addEntry") ? sap.ui.getCore().byId(root + "LimitItemsFacet::addEntry").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "LimitItemsFacet::pasteEntries") ? sap.ui.getCore().byId(root + "LimitItemsFacet::pasteEntries").setEnabled(true) : '';
+                    sap.ui.getCore().byId(root + "GeneralInformationFacet3::FormGroup_C_PurchaseOrderTPType_ZZ1_RESP_EM-element0") ? sap.ui.getCore().byId(root + "GeneralInformationFacet3::FormGroup_C_PurchaseOrderTPType_ZZ1_RESP_EM-element0").setEnabled(true) : '';
+                }
             },
             dialogAsignarClasificacion: function () {
                 /*var oList = sap.ui.getCore().byId("ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderTP--attachmentReuseComponent::simple::Attachments::ComponentContainerContent---attachmentService--attachmentServiceFileUpload")
@@ -2157,7 +2159,8 @@ sap.ui.define([
                         }
         */
                 // BEGIN REFACTOR TAXONOMIA - RJV - 05/06/2023
-                var idFormTaxo = this.getView().byId("customer.zmmpomanages1pa.inputTaxonomia");
+                var idFormTaxo = sap.ui.getCore().byId("ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderItemTP--customer.zmmpomanages1pa.inputTaxonomia")
+
                 var purchaseOrderType = this.getPurchaseOrderInPos();
 
                 if (purchaseOrderType) {

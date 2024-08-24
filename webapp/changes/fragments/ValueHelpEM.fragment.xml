@@ -4,7 +4,7 @@
         <form:elements>
             <Input 
             id="inputContrEM" 
-            enabled="{= ${ui>/editable} &amp;&amp; ${PurchaseOrderType}!=='ZOR' ? true : false}" 
+            enabled="{=((${ui>/editable}) &amp;&amp; (${PurchaseOrderType}!=='ZOR')) ? true : false}" 
             showValueHelp="true"
             change=".extension.customer.zmmpomanages1pa.DatosCliente.onChangeInputEM"
             showSuggestion="true"
