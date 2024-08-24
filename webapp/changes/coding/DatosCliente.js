@@ -1920,11 +1920,8 @@ sap.ui.define([
 
             },
             getPurchaseOrderInPos: function () {
-                var header = sap.ui.getCore().byId("ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderItemTP--template::ObjectPage::ObjectPageHeader");
-                if (header) {
-                    var href = header.getBreadcrumbs().getLinks()[0].getHref();
-                    var pathParent = href.split("/C_PurchaseOrderTP")[1];
-                    return this.getView().getModel().getProperty("/C_PurchaseOrderTP" + pathParent + "/PurchaseOrderType");
+                if (this.getView().getBindingContext().getObject() && this.getView().getBindingContext().getObject().PurchaseOrderType) {
+                    return this.getView().getBindingContext().getObject().PurchaseOrderType;
                 } else {
                     return "";
                 }
