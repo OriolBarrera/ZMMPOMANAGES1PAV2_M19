@@ -1,0 +1,29 @@
+{
+  "fileName": "id_1725444222493",
+  "namespace": "apps/ui.ssuite.s2p.mm.pur.po.manage.st.s1/appVariants/customer.zmmpomanages1pa/changes",
+  "layer": "CUSTOMER_BASE",
+  "fileType": "change",
+  "creation": "2024-09-04T10:03:42.493Z",
+  "packageName": "$TMP",
+  "reference": "customer.zmmpomanages1pa",
+  "support": {
+    "generator": "@sap-ux/adp-tooling"
+  },
+  "changeType": "appdescr_ui5_addNewModel",
+  "content": {
+    "dataSource": {
+      "customer.ZMM_CO_SRV": {
+        "uri": "/sap/opu/odata/sap/ZMM_CO_SRV",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0"
+        }
+      }
+    },
+    "model": {
+      "customer.ZMM_CO_SRV": {
+        "dataSource": "customer.ZMM_CO_SRV"
+      }
+    }
+  }
+}
