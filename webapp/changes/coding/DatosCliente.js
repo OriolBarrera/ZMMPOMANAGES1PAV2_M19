@@ -3232,12 +3232,12 @@ sap.ui.define([
                 oEvent.getSource().getModel().submitChanges();
             },
             _validateCO94HiddenSourceSupply: function (sTypeDocument) {
-                let oSectionSourceSupply = sap.ui.getCore().byId("ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderItemTP--SourceOfSupplyCollectionFacet::Section");
+                let oSectionSourceSupply = sap.ui.getCore().byId("ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderItemTP--ReferenceObjectsCollectionFacet::Section");
                 if (oSectionSourceSupply) {
-                    if (sTypeDocument === "ZDE") {
-                        oSectionSourceSupply.setVisible(true);
-                    } else {
+                    if (sTypeDocument === "ZLT" || sTypeDocument === "ZNM") {
                         oSectionSourceSupply.setVisible(false);
+                    } else {
+                        oSectionSourceSupply.setVisible(true);
                     }
                 }
             },
