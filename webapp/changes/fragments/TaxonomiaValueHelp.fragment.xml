@@ -6,7 +6,7 @@
 				<fb:filterGroupItems>
 					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Taxonomia" label="{i18n>taxonomia}" visibleInFilterBar="true">
 						<fb:control>
-							<m:Input name="Taxonomia"/>
+							<m:Input name="Taxonomia" value="{auxFilter>/Taxonomia}"/>
 						</fb:control>
 					</fb:FilterGroupItem>
 					<fb:FilterGroupItem groupName="__$INTERNAL$" name="DescTaxonomia" label="{i18n>taxonomiadesc}" visibleInFilterBar="true">

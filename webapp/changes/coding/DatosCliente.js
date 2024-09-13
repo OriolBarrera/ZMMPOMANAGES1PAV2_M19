@@ -1791,7 +1791,7 @@ sap.ui.define([
             setFieldsEnabledZOR: function () {
                 var root = "ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderTP--";
                 //sap.ui.getCore().byId(root + "GeneralInformationFacet1::PurchaseOrderType::Field") ? sap.ui.getCore().byId(root + "GeneralInformationFacet1::PurchaseOrderType::Field").setEnabled(true) : '';
-                if(sap.ui.getCore().byId(root + "customer.zmmpomanages1pa.inputContrEM").getModel("ui").getData.editable === true){
+                if(sap.ui.getCore().byId(root + "customer.zmmpomanages1pa.inputContrEM") && sap.ui.getCore().byId(root + "customer.zmmpomanages1pa.inputContrEM").getModel("ui").getData.editable === true){
                     sap.ui.getCore().byId(root + "GeneralInformationFacet1::DocumentCurrency::Field") ? sap.ui.getCore().byId(root + "GeneralInformationFacet1::DocumentCurrency::Field").setEnabled(true) : '';
                     sap.ui.getCore().byId(root + "GeneralInformationFacet2::PurchasingGroup::Field") ? sap.ui.getCore().byId(root + "GeneralInformationFacet2::PurchasingGroup::Field").setEnabled(true) : '';
                     sap.ui.getCore().byId(root + "GeneralInformationFacet2::PurchasingOrganization::Field") ? sap.ui.getCore().byId(root + "GeneralInformationFacet2::PurchasingOrganization::Field").setEnabled(true) : '';
@@ -1923,8 +1923,14 @@ sap.ui.define([
                 if (this.getView().getBindingContext().getObject() && this.getView().getBindingContext().getObject().PurchaseOrderType) {
                     return this.getView().getBindingContext().getObject().PurchaseOrderType;
                 } else {
-                    return "";
+                    if(sap.ui.getCore().byId("ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderItemTP--template::ObjectPage::ObjectPageHeader")){
+                        var sPath = sap.ui.getCore().byId("ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderItemTP--template::ObjectPage::ObjectPageHeader").getBreadcrumbs().getLinks()[0].getHref().split("/C_PurchaseOrderTP")[1];
+                        return this.getView().getModel().getProperty("/C_PurchaseOrderTP"+sPath+"/PurchaseOrderType");
+                    }else{
+                        return "";
+                    }                    
                 }
+                
             },
             /* BORRAR REFACTOR 
             //BEGIN JMD: ESFU CO124
@@ -2735,11 +2741,15 @@ sap.ui.define([
                 var grupoArt = this.getView().getBindingContext().getObject().MaterialGroup;
                 this.getFragment("TaxonomiaValueHelp").then(function (oFragment) {
                     oFragment.getFilterBar().setBasicSearch(this._oBasicSearchField);
-                    oFragment.getFilterBar().setModel(new sap.ui.model.json.JSONModel({ Matkl: grupoArt }), "auxFilter");
                     //oFragment.getTable().setModel(this.getView().getModel("ZCDS_F4_RELTAXGRU_CDS"));
                     oFragment.getTable().setModel(oColModel, "columns");
                     var purchaseOrderType = this.getPurchaseOrderInPos();
                     purchaseOrderType = purchaseOrderType === "ZNM" ? purchaseOrderType : "";
+                    if(purchaseOrderType === "ZNM"){
+                        oFragment.getFilterBar().setModel(new sap.ui.model.json.JSONModel({ Matkl: grupoArt, Taxonomia: "NM" }), "auxFilter");
+                    }else{
+                        oFragment.getFilterBar().setModel(new sap.ui.model.json.JSONModel({ Matkl: grupoArt }), "auxFilter");
+                    }                    
                     oFragment.getTable().bindRows({
                         path: "ZCDS_F4_RELTAXGRU_CDS>/ZCDS_F4_RELTAXGRU(in_bukrs='" + sBukrs + "',in_bsart='" + sBsart + "',in_Matkl='')/Set",
                     });
