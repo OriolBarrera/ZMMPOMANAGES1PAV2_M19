@@ -1,0 +1,29 @@
+{
+  "fileName": "id_1726589613021",
+  "namespace": "apps/ui.ssuite.s2p.mm.pur.po.manage.st.s1/appVariants/customer.zmmpomanages1pa/changes",
+  "layer": "CUSTOMER_BASE",
+  "fileType": "change",
+  "creation": "2024-09-17T16:13:33.021Z",
+  "packageName": "ZFIORI",
+  "reference": "customer.zmmpomanages1pa",
+  "support": {
+    "generator": "@sap-ux/adp-tooling"
+  },
+  "changeType": "appdescr_ui5_addNewModel",
+  "content": {
+    "dataSource": {
+      "customer.ZMM_ATTACHMENT_CLASIF_SRV": {
+        "uri": "/sap/opu/odata/sap/ZMM_ATTACHMENT_CLASIF_SRV",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0"
+        }
+      }
+    },
+    "model": {
+      "customer.ZMM_ATTACHMENT_CLASIF_SRV": {
+        "dataSource": "customer.ZMM_ATTACHMENT_CLASIF_SRV"
+      }
+    }
+  }
+}

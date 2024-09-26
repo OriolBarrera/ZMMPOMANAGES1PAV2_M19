@@ -95,6 +95,9 @@ sap.ui.define([
                     this.getView().getModel().attachRequestCompleted(jQuery.proxy(function (e) {
                         //BEGIN - RJV - TS119 - 11/10/2022
                         //Se comprueba si es nuevo y obtiene la primera posición y se copian las REU y las BP
+                        if(e.mParameters.method === "MERGE" && e.mParameters.url.includes("C_PurchaseOrderItemTP")){
+                            this.getView().getModel().refresh();
+                        }
                         if (e.getParameter("url").indexOf("to_PurchaseOrderItemTP") > -1 && e.getParameter("response").statusCode === '201') {
                             var path = "/C_PurchaseOrderItemTP" + e.getParameter("response").headers.location.split("C_PurchaseOrderItemTP")[1];
                             if (this.getView().getBindingContext()) {
