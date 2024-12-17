@@ -1,4 +1,4 @@
 <!-- Use stable and unique IDs!-->
 <core:FragmentDefinition xmlns:core='sap.ui.core' xmlns='sap.m'>
-	<Button id="asignarClasificacion"  visible="{=${PurchaseOrderType} === 'ZOR'}" text="{i18n>asignarClasificacion}" press=".extension.customer.zmmpomanages1pa.DatosCliente.dialogAsignarClasificacion"/>
+	<Button id="asignarClasificacion" visible="false"  text="{i18n>asignarClasificacion}" press=".extension.customer.zmmpomanages1pa.DatosCliente.dialogAsignarClasificacion"/>
 </core:FragmentDefinition>

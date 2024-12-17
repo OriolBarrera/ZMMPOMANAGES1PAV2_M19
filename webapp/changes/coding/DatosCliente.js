@@ -801,7 +801,7 @@ sap.ui.define([
                         }
                         //END - RJV - TS119 - 11/10/2022
                         //BEGIN RJV: ESFU CO76
-                        var sId = "ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderTP--attachmentReuseComponent::simple::Attachments::ComponentContainerContent---attachmentService--attachmentServiceFileUpload";
+                        var sId = "ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderItemTP--attachmentReuseComponent::simple::Attachments::ComponentContainerContent---attachmentService--attachmentServiceFileUpload-list";
                         let sId1 = "ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderItemTP--attachmentReuseComponent::simple::Attachments::ComponentContainerContent---attachmentService--attachmentServiceFileUpload";
                         this.oList = sap.ui.getCore().byId(sId);
                         this.oList1 = sap.ui.getCore().byId(sId1);
@@ -923,8 +923,8 @@ sap.ui.define([
                             dataitems: oContext.dataitems
                         });
                         for(var i = 0; i < this.oList.getItems().length; i++){
-                            this.oList.getItems()[i].setVisibleRemove(true);
-                            this.oList.getItems()[i].setEnabledRemove(true);
+                            // this.oList.getItems()[i].setVisibleRemove(true);
+                            // this.oList.getItems()[i].setEnabledRemove(true);
                         }
                         this.oList.setMode("SingleSelectLeft");
                     }
@@ -1270,7 +1270,7 @@ sap.ui.define([
                 let oEntry = {};
                 var oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
                 oContextDialog = this.getView().getModel("JSON_MDL").getProperty("/Type");
-                oContextItem = this.oList.getSelectedItem() ? this.oList.getSelectedItem()[0].getBindingContext("__attachmentData").getObject() : null;
+                oContextItem = this.oList.getSelectedItem() ? this.oList.getSelectedItem().getContent()[1].getItem().getBindingContext("__attachmentData").getObject() : null;
                 sUrl = "/DocumentClasifSet";
                 if (!oContextDialog.TypeI && !oContextDialog.TypeE) {
                     sap.m.MessageToast.show(oResourceBundle.getText("seleccionarClasificacion"));
@@ -1838,7 +1838,7 @@ sap.ui.define([
                 }
             },
             dialogAsignarClasificacion: function () {
-                /*var oList = sap.ui.getCore().byId("ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderTP--attachmentReuseComponent::simple::Attachments::ComponentContainerContent---attachmentService--attachmentServiceFileUpload")
+                var oList = sap.ui.getCore().byId("ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderTP--attachmentReuseComponent::simple::Attachments::ComponentContainerContent---attachmentService--attachmentServiceFileUpload")
                 this.oDialog = new sap.m.Dialog({
                     title: "Asignar Clasificación",
                     content: [
@@ -1880,8 +1880,9 @@ sap.ui.define([
                         var sUrl = "/TipoAnexosI_ESet(Zzsociedad='" + oBindingContext.getProperty("CompanyCode") +
                             "',ZztipoDoc='F" +
                             "',ZzclaseDoc='" + oBindingContext.getProperty("PurchaseOrderType") +
-                            "',ZzOrgComp='')";
-                        this.getView().getModel("MDL_SCD").read(sUrl, {
+                            "',ZzOrgComp='" + oBindingContext.getProperty("PurchasingOrganization") +
+                            "',ZzDocumento='" + oBindingContext.getProperty("PurchaseOrder") + "')";
+                            ZMM_CO_SRV.read(sUrl, {
                             success: (oResult) => {
                                 if (oResult.ZzindExIn == "I" || oResult.ZzindExIn == "E") {
                                     oResult.TypeI = false;
@@ -1908,8 +1909,8 @@ sap.ui.define([
                         oPromise.reject();
                     }
                 });
-                this.getView().addDependent(this.oDialog);*/
-                var oContextItem = this.oList.getSelectedItem() ? this.oList.getSelectedItem()[0].getBindingContext("__attachmentData").getObject() : null
+                this.getView().addDependent(this.oDialog);
+                var oContextItem = this.oList.getSelectedItem();
                 if (!oContextItem) {
                     var oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
                     sap.m.MessageToast.show(oResourceBundle.getText("seleccionarAdjunto"));
@@ -1928,6 +1929,9 @@ sap.ui.define([
                 } else {
                     if(sap.ui.getCore().byId("ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderItemTP--template::ObjectPage::ObjectPageHeader")){
                         var sPath = sap.ui.getCore().byId("ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ObjectPage.view.Details::C_PurchaseOrderItemTP--template::ObjectPage::ObjectPageHeader").getBreadcrumbs().getLinks()[0].getHref().split("/C_PurchaseOrderTP")[1];
+                        if(sPath.Contains("/")){
+                            sPath = sPath.split("/")[0];
+                        }
                         return this.getView().getModel().getProperty("/C_PurchaseOrderTP"+sPath+"/PurchaseOrderType");
                     }else{
                         return "";
